@@ -10,9 +10,8 @@ function eventCariPeluang(e) {
     alert('Tambahkan ruang sampel dan ruang semesta');
   } else {
     let hasil = cariPeluang(ruangSampel.value, ruangSemesta.value);
-    // console.log(hasil);
-    // cariPeluangDOM(hasil, ruangSampel.value, ruangSemesta.value);
-    penyelesain.innerHTML = hasil;
+    cariPeluangDOM(hasil, ruangSampel.value, ruangSemesta.value);
+    
   }
 }
 
@@ -21,11 +20,16 @@ function cariPeluang(ruangSampel, ruangSemesta){
 }
 
 function cariPeluangDOM(hasil, ruangSampel, ruangSemesta){
-  let html =  `\[P(a) = {n(a) \over n(s)}\]`;
+  let html =  `<img id="gambar" src="https://latex.codecogs.com/svg.latex?&#92frac{${ruangSampel}}{${ruangSemesta}}=${hasil}" border="0"/>`;
   penyelesain.innerHTML = html;
-  
+  //menungguGambar();
 }
-
+// function menungguGambar(){
+//   const gambar = document.getElementById('gambar');
+//   gambar.addEventListener("load", function (){
+//     alert('tunggu sebentar');
+//   });
+// }
 
 
 form.addEventListener('submit', eventCariPeluang);

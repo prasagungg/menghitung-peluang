@@ -90,5 +90,9 @@ input[type='number'] {
   outline: 0;
 }
 
+.garis {
+  border-bottom: 1px solid #bbb;
+}
+
 
 
