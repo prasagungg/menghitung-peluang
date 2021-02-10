@@ -5,7 +5,7 @@ const k = document.getElementById('k');
 
 
 const mencariFaktorial = num => {
-  return num === 1 ? 1 : (num * mencariFaktorial(num - 1))
+  return num === 1 ? 1 : (num * mencariFaktorial(num - 1));
 }
 
 const mencariPermutasi = (penyebut,pembilang) => {
@@ -23,17 +23,7 @@ function domPenyelesaian(n,k, penyebut, pembilang, hasil){
       </tr>
 
       <tr>
-        <td class="garis">${n}!</td>
-      </tr>
-      <tr>
-        <td>${n-k}!</td>
-      </tr>
-
-      <tr>
-        <td class="garis">${n}!</td>
-      </tr>
-      <tr>
-        <td>${n-k}!</td>
+        <td> </td>
       </tr>
 
       <tr>
@@ -44,7 +34,11 @@ function domPenyelesaian(n,k, penyebut, pembilang, hasil){
       </tr>
 
       <tr>
-        <td>${hasil}</td>
+        <td> </td>
+      </tr>
+
+      <tr>
+        <td>${hasil} cara</td>
       </tr>
     </table>
   `
