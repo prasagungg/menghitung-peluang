@@ -20,16 +20,26 @@ function cariPeluang(ruangSampel, ruangSemesta){
 }
 
 function cariPeluangDOM(hasil, ruangSampel, ruangSemesta){
-  let html =  `<img id="gambar" src="https://latex.codecogs.com/svg.latex?&#92frac{${ruangSampel}}{${ruangSemesta}}=${hasil}" border="0"/>`;
-  penyelesain.innerHTML = html;
-  //menungguGambar();
-}
-// function menungguGambar(){
-//   const gambar = document.getElementById('gambar');
-//   gambar.addEventListener("load", function (){
-//     alert('tunggu sebentar');
-//   });
-// }
+  let html =  `
+    <table>
+      <tr>
+        <td class="garis">${ruangSampel}</td>
+      </tr>
+      <tr>
+        <td>${ruangSemesta}</td>
+      </tr>
 
+      <tr>
+        <td> </td>
+      </tr>
+
+      <tr>
+        <td>${hasil}</td>
+      </tr>
+    </table>
+  `;
+  penyelesain.innerHTML = html;
+  
+}
 
 form.addEventListener('submit', eventCariPeluang);

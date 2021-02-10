@@ -13,19 +13,24 @@
     <div class="container">
       <h3>Rumus</h3>
       <div class="inc-exp-container">
-        <p> \[K = {n \over k!.(n-k)!}\]</p>
+        <p> \[P(a) = {n(a) \over n(s)}\]</p>
+        <p> \[F(h) = {P(a).n}\]</p>
       </div>
-      <h3>Frekuensi Harapan</h3>
+      <h3>Mencari Frekuensi Harapan</h3>
       <form id="form">
         <div class="form-control">
-          <label for="n">Banyaknya N</label>
-          <input type="number" id="n" placeholder="Masukan Banyaknya N..." />
+          <label for="ruangSampel">Ruang Sampel</label>
+          <input type="number" id="ruangSampel" placeholder="Masukan Ruang Sampel..." />
         </div>
         <div class="form-control">
-          <label for="k">Ruang Semesta </label>
-          <input type="number" id="k" placeholder="Masukan Banyaknya K..." />
+          <label for="ruangSemesta">Ruang Semesta </label>
+          <input type="number" id="ruangSemesta" placeholder="Masukan Ruang Semesta..." />
         </div>
-        <button class="btn">Cari Kombinasi</button>
+        <div class="form-control">
+          <label for="banyakPercobaan">Banyak Percobaan </label>
+          <input type="number" id="banyakPercobaan" placeholder="Masukan Banyak Percobaan..." />
+        </div>
+        <button class="btn">Cari Peluang</button>
       </form>
       
       <h3>Penyelesain</h3>
@@ -35,7 +40,7 @@
       <button onclick="document.location.href='../index.html'"class="btn">Kembali</button>
     </div>
 
-    <script src="../js/kombinasi.js"></script>
+    <script src="../js/harapan.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </body>
