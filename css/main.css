@@ -64,7 +64,8 @@ label {
   margin: 10px 0;
 }
 
-input[type='number'] {
+input[type='number'],
+input[type='text'] {
   border: 1px solid #dedede;
   border-radius: 2px;
   display: block;
