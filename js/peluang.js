@@ -32,7 +32,7 @@ function cariPeluangDOM(hasil, ruangSampel, ruangSemesta){
 
 form.addEventListener('submit', function (e){
   e.preventDefault();
-
+  reset([ruangSampel, ruangSemesta]);
   checkRequired([ruangSampel, ruangSemesta]);
   checkNumber(ruangSampel);
   checkNumber(ruangSemesta);

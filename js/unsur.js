@@ -75,6 +75,17 @@ function eventMencari(e) {
     if (kata.value.trim() === ''){
         alert('tambahkan kata');
     } else {
+        
+    }
+}
+
+form.addEventListener('submit', function (e){
+    e.preventDefault();
+
+    reset([kata]);
+    checkRequired([kata]);
+
+    if (checkRequired([kata])){
         const panjang = mencariPanjang(kata.value);
         const panjangFaktorial = mencariFaktorial(panjang);
         const dataSebelumFaktorial = mencariPersamaan(kata.value);
@@ -82,13 +93,8 @@ function eventMencari(e) {
         const hasilKali = dataSetelahFaktorial.reduce((val, element) => val*element);
         const hasil = mencariHasil(panjangFaktorial, hasilKali);
 
-        console.log(hasilKali);
-        console.log(dataSebelumFaktorial);
-        console.log(dataSetelahFaktorial);
         domPenyelesaian(panjang,panjangFaktorial, dataSebelumFaktorial, dataSetelahFaktorial, hasil);
         
     }
-}
-
-form.addEventListener('submit', eventMencari);
+});
 

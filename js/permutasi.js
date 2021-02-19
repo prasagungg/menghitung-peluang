@@ -45,17 +45,19 @@ function domPenyelesaian(n,k, penyebut, pembilang, hasil){
   penyelesain.innerHTML = html;
 }
 
-function eventMencariPermutasi(e){
+form.addEventListener('submit', function (e){
   e.preventDefault();
-  if (n.value.trim() === '' || k.value.trim() === '' ){
-    alert('tambahkan nilai n dan k');
-  } else {
+  reset([n,k]);
+  checkRequired([n,k]);
+  checkNumber(n);
+  checkNumber(k);
+  checkBigger(n,k);
+
+  if (checkRequired([n,k]) && checkNumber(n) && checkNumber(k) && checkBigger(n,k)){
     const penyebut = mencariFaktorial(n.value);
     const pembilang = mencariFaktorial(n.value - k.value);
     const hasil = mencariPermutasi(penyebut, pembilang);
-    console.log(pembilang);
     domPenyelesaian(n.value, k.value, penyebut, pembilang, hasil);
   }
-}
-
-form.addEventListener('submit', eventMencariPermutasi);
+  
+});

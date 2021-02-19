@@ -4,21 +4,6 @@ const ruangSampel = document.getElementById('ruangSampel');
 const ruangSemesta = document.getElementById('ruangSemesta');
 const banyakPercobaan = document.getElementById('banyakPercobaan');
 
-function eventCariHarapan(e) {
-  e.preventDefault();
-
-  if (ruangSampel.value.trim() === '' || ruangSemesta.value.trim() === '' || banyakPercobaan.value.trim() === '' ){
-    alert('Tambahkan ruang sampel, ruang semesta dan banyak percobaan');
-  } else {
-    const peluang = cariPeluang(ruangSampel.value, ruangSemesta.value);
-    const hasil = cariHarapan(peluang, banyakPercobaan.value);
-    cariHarapanDOM(ruangSampel.value, ruangSemesta.value, peluang, banyakPercobaan.value, hasil);
-    console.log(peluang);
-    console.log(hasil);
-    
-  }
-}
-
 function cariHarapan(peluang, banyak) {
   return peluang * banyak;
 }
@@ -63,4 +48,18 @@ function cariHarapanDOM(ruangSampel, ruangSemesta, peluang, banyak, hasil){
   
 }
 
-form.addEventListener('submit', eventCariHarapan);
+form.addEventListener('submit', function (e){
+  e.preventDefault();
+  reset([ruangSampel, ruangSemesta, banyakPercobaan]);
+  checkRequired([ruangSampel,ruangSemesta, banyakPercobaan]);
+  checkNumber(ruangSampel);
+  checkNumber(ruangSemesta);
+  checkNumber(banyakPercobaan);
+
+  if (checkRequired([ruangSampel,ruangSemesta, banyakPercobaan]) && checkNumber(ruangSampel) && checkNumber(ruangSemesta) && checkNumber(banyakPercobaan)){
+    const peluang = cariPeluang(ruangSampel.value, ruangSemesta.value);
+    const hasil = cariHarapan(peluang, banyakPercobaan.value);
+    cariHarapanDOM(ruangSampel.value, ruangSemesta.value, peluang, banyakPercobaan.value, hasil);
+  }
+
+});

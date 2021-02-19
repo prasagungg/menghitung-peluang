@@ -27,20 +27,16 @@ function domMencariSiklis(n, siklis, hasil){
   penyelesain.innerHTML = html;
 }
 
+form.addEventListener('submit', function (e) {
+  e.preventDefault(e)
+  reset([n]);
+  checkRequired([n]);
+  checkOne(n);
 
-function eventMencariSiklis(e){
-  e.preventDefault();
-  const banyaknya = n.value;
-
-  if (n.value.trim() === ''){
-    alert('tambahkan banyaknya (n)');
-  } else {
-
-    let siklis = mencariSiklis(banyaknya);
+  if(checkRequired([n]) && checkOne(n)){
+    let siklis = mencariSiklis(n.value);
     let hasil = mencariFaktorial(siklis);
     
-    domMencariSiklis(banyaknya, siklis, hasil);
-
+    domMencariSiklis(n.value, siklis, hasil);
   }
-}
-form.addEventListener('submit', eventMencariSiklis);
+});
