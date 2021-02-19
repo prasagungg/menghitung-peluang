@@ -62,3 +62,4 @@ function eventMencariKombinasi(e){
   }
 }
 form.addEventListener('submit', eventMencariKombinasi);
+//console.log(mencariFaktorial(1));

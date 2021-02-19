@@ -3,18 +3,6 @@ const form = document.getElementById('form');
 const ruangSampel = document.getElementById('ruangSampel');
 const ruangSemesta = document.getElementById('ruangSemesta');
 
-function eventCariPeluang(e) {
-  e.preventDefault();
-
-  if (ruangSampel.value.trim() === '' || ruangSemesta.value.trim() === ''){
-    alert('Tambahkan ruang sampel dan ruang semesta');
-  } else {
-    let hasil = cariPeluang(ruangSampel.value, ruangSemesta.value);
-    cariPeluangDOM(hasil, ruangSampel.value, ruangSemesta.value);
-    
-  }
-}
-
 function cariPeluang(ruangSampel, ruangSemesta){
   return ruangSampel/ruangSemesta;
 }
@@ -42,4 +30,18 @@ function cariPeluangDOM(hasil, ruangSampel, ruangSemesta){
   
 }
 
-form.addEventListener('submit', eventCariPeluang);
+form.addEventListener('submit', function (e){
+  e.preventDefault();
+
+  checkRequired([ruangSampel, ruangSemesta]);
+  checkNumber(ruangSampel);
+  checkNumber(ruangSemesta);
+  
+  
+  if (checkRequired([ruangSampel, ruangSemesta]) && checkNumber(ruangSemesta) && checkNumber(ruangSampel)) {
+    let hasil = cariPeluang(ruangSampel.value, ruangSemesta.value);
+    cariPeluangDOM(hasil, ruangSampel.value, ruangSemesta.value);
+  }
+  
+    
+});
