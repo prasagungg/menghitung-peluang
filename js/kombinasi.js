@@ -45,21 +45,24 @@ const domPenyelesaian = (n,k,penyebut,pembilang,hasil) => {
   penyelesain.innerHTML = html;
 }
 
-function eventMencariKombinasi(e){
+form.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  if (n.value.trim() === '' || k.value.trim() === ''){
-    alert('masukan nilai n dan k');
-  } else {
+  reset([n,k]);
+  const required = (checkRequired([n,k]));
+  const numberN = (checkNumber(n));
+  const numberK = (checkNumber(k));
+  const bigger = (checkBigger(n,k));
+  const oneN = (checkOne(n));
+  const oneK = (checkOne(k));
+
+  if (required && numberN && numberK && bigger && oneN && oneK) {
     const penyebut = mencariFaktorial(n.value);
     const pembilang = mencariPembilang(n.value, k.value);
     const hasil = mencariKombinasi(penyebut, pembilang);
 
     domPenyelesaian(n.value, k.value, penyebut, pembilang, hasil );
-    console.log(penyebut);
-    console.log(pembilang);
-    console.log(hasil);
   }
-}
-form.addEventListener('submit', eventMencariKombinasi);
+
+});
 //console.log(mencariFaktorial(1));
